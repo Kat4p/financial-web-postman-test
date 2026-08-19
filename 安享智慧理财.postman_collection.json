@@ -1,0 +1,1274 @@
+{
+	"info": {
+		"_postman_id": "da5aaf2f-8429-40a4-94e0-d10051fd7e74",
+		"name": "金融项目",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "登录",
+			"item": [
+				{
+					"name": "登录成功1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为200', function () {",
+									"    pm.expect(jsonData.status).to.eql(200);",
+									"});",
+									"",
+									"pm.test('断言description为登录成功', function () {",
+									"    pm.expect(jsonData.description).to.eql('登录成功');",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "17375550000",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "手机号未注册",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为100', function () {",
+									"    pm.expect(jsonData.status).to.eql(100);",
+									"});",
+									"",
+									"pm.test('断言description为用户不存在', function () {",
+									"    pm.expect(jsonData.description).to.eql('用户不存在');",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "17375559999",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "密码错误",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为100', function () {",
+									"    pm.expect(jsonData.status).to.eql(100);",
+									"});",
+									"",
+									"pm.test('断言description为密码错误', function () {",
+									"    pm.expect(jsonData.description).to.eql('密码错误1次,达到3次将锁定账户');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "17375550000",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456bb",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "连续密码错误第1次",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为100', function () {",
+									"    pm.expect(jsonData.status).to.eql(100);",
+									"});",
+									"",
+									"pm.test('断言description为密码错误', function () {",
+									"    pm.expect(jsonData.description).to.eql('密码错误1次,达到3次将锁定账户');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "17375550002",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456bb",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "连续密码错误第2次",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为100', function () {",
+									"    pm.expect(jsonData.status).to.eql(100);",
+									"});",
+									"",
+									"pm.test('断言description为密码错误', function () {",
+									"    pm.expect(jsonData.description).to.eql('密码错误2次,达到3次将锁定账户');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "17375550002",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456bb",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "连续密码错误第3次",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为100', function () {",
+									"    pm.expect(jsonData.status).to.eql(100);",
+									"});",
+									"",
+									"pm.test('断言description为密码错误', function () {",
+									"    pm.expect(jsonData.description).to.eql('由于连续输入错误密码达到上限，账号已被锁定，请于1.0分钟后重新登录');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "17375550002",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456bb",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "手机号包含特殊字符",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为200', function () {",
+									"    pm.expect(jsonData.status).to.eql(200);",
+									"});",
+									"",
+									"pm.test('断言description为登录成功', function () {",
+									"    pm.expect(jsonData.description).to.eql('登录成功');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "17375550000!",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "手机号为空",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为100', function () {",
+									"    pm.expect(jsonData.status).to.eql(100);",
+									"});",
+									"",
+									"pm.test('断言description为用户名不能为空', function () {",
+									"    pm.expect(jsonData.description).to.eql('用户名不能为空');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "密码为空",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言description为密码不能为空', function () {",
+									"    pm.expect(jsonData.description).to.eql('密码不能为空');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "17375550002",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1位密码",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为100', function () {",
+									"    pm.expect(jsonData.status).to.eql(100);",
+									"});",
+									"",
+									"pm.test('断言description为密码错误', function () {",
+									"    pm.expect(jsonData.description).to.eql('密码错误1次,达到3次将锁定账户');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "17375550003",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "100位密码",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为100', function () {",
+									"    pm.expect(jsonData.status).to.eql(100);",
+									"});",
+									"",
+									"pm.test('断言description为密码错误', function () {",
+									"    pm.expect(jsonData.description).to.eql('密码错误1次,达到3次将锁定账户');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "17375550004",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "10位手机号",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为100', function () {",
+									"    pm.expect(jsonData.status).to.eql(100);",
+									"});",
+									"",
+									"pm.test('断言description为用户不存在', function () {",
+									"    pm.expect(jsonData.description).to.eql('用户不存在');",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "1737555000",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "12位手机号",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为100', function () {",
+									"    pm.expect(jsonData.status).to.eql(100);",
+									"});",
+									"",
+									"pm.test('断言description为用户不存在', function () {",
+									"    pm.expect(jsonData.description).to.eql('用户不存在');",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "173755500000",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "多参登录成功",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为200', function () {",
+									"    pm.expect(jsonData.status).to.eql(200);",
+									"});",
+									"",
+									"pm.test('断言description为登录成功', function () {",
+									"    pm.expect(jsonData.description).to.eql('登录成功');",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "17375550000",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aa",
+									"type": "text"
+								},
+								{
+									"key": "verify_code",
+									"value": "8888",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "少参",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言description为密码错误1次,达到3次将锁定账户', function () {",
+									"    pm.expect(jsonData.description).to.eql('密码错误1次,达到3次将锁定账户');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "17375550000",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "None",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "无参",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为100', function () {",
+									"    pm.expect(jsonData.status).to.eql(100);",
+									"});",
+									"",
+									"pm.test('断言description为用户名不能为空', function () {",
+									"    pm.expect(jsonData.description).to.eql('用户名不能为空');",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "None",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "错误参数",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为100', function () {",
+									"    pm.expect(jsonData.status).to.eql(100);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "17375550000",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "修改个人信息",
+			"item": [
+				{
+					"name": "登录成功-获取用户权限",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为200', function () {",
+									"    pm.expect(jsonData.status).to.eql(200);",
+									"});",
+									"",
+									"pm.test('断言description为登录成功', function () {",
+									"    pm.expect(jsonData.description).to.eql('登录成功');",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keywords",
+									"value": "17375550000",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456aa",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/public/login",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改个人信息",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"pm.test('断言status为200', function () {",
+									"    pm.expect(jsonData.status).to.eql(200);",
+									"});",
+									"",
+									"pm.test('断言description为保存成功', function () {",
+									"    pm.expect(jsonData.description).to.eql('保存成功');",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "educationalBackground",
+									"value": "20105",
+									"type": "text"
+								},
+								{
+									"key": "graduated",
+									"value": "湖南农业大学",
+									"type": "text"
+								},
+								{
+									"key": "marryStatus",
+									"value": "21321",
+									"type": "text"
+								},
+								{
+									"key": "companyIndustry",
+									"value": "21003",
+									"type": "text"
+								},
+								{
+									"key": "companyScale",
+									"value": "21101",
+									"type": "text"
+								},
+								{
+									"key": "companyOffice",
+									"value": "21206",
+									"type": "text"
+								},
+								{
+									"key": "monthlyIncome",
+									"value": "21301",
+									"type": "text"
+								},
+								{
+									"key": "hometownProvince",
+									"value": "2034",
+									"type": "text"
+								},
+								{
+									"key": "hometownCity",
+									"value": "2154",
+									"type": "text"
+								},
+								{
+									"key": "hometownArea",
+									"value": "2157",
+									"type": "text"
+								},
+								{
+									"key": "hometownPost",
+									"value": "418000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://121.43.169.97:8081/member/info/saveInfo",
+							"protocol": "http",
+							"host": [
+								"121",
+								"43",
+								"169",
+								"97"
+							],
+							"port": "8081",
+							"path": [
+								"member",
+								"info",
+								"saveInfo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
