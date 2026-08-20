@@ -1,0 +1,36 @@
+[
+  {
+    "keywords": "17375550003",
+    "password": "123456aa",
+    "description": "登录成功",
+    "educationalBackground": "20105",
+    "graduated": "湖南农业大学",
+    "marryStatus": "21321",
+    "companyIndustry": "21003",
+    "companyScale": "21101",
+    "companyOffice": "21206",
+    "monthlyIncome": "21301",
+    "hometownProvince": "2034",
+    "hometownCity": "2154",
+    "hometownArea": "2157",
+    "hometownPost": "418000",
+    "expected": "保存成功"
+  },
+  {
+    "keywords": "17375550002",
+    "password": "123456aa",
+    "description": "登录成功",
+    "educationalBackground": "20104",
+    "graduated": "湖南大学",
+    "marryStatus": "21322",
+    "companyIndustry": "21004",
+    "companyScale": "21102",
+    "companyOffice": "21207",
+    "monthlyIncome": "21302",
+    "hometownProvince": "2034",
+    "hometownCity": "2154",
+    "hometownArea": "2157",
+    "hometownPost": "410000",
+    "expected": "保存成功"
+  }
+]
